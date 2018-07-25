@@ -170,6 +170,40 @@ if(req.session.UserID != null){
   console.log("El carrito es : " + req.session.Carrito);
   res.redirect('/productos');
 });
+
+router.get('/eliminarcarrito/:id', function(req, res, next) {
+  console.log(req.session.Carrito);
+  for(var i =0; i< req.session.Carrito.length; i++){
+
+    if(req.session.Carrito[i].ManualID == req.params.id){
+      req.session.Carrito.splice(i, 1);
+      req.session.Carrito = req.session.Carrito;
+      break;
+    }
+  }
+    var carrito = [];
+    var total =0;
+    var nombre ="";
+    count =0;
+    var UserID = 0;
+  if(req.session.UserID != null){
+    UserID =req.session.UserID;
+  }
+    if(req.session.Carrito != null && req.session.Carrito.length>0){
+      carrito= req.session.Carrito;
+      for(var i =0; i< req.session.Carrito.length;i++){
+        total =total + parseFloat(req.session.Carrito[i].Precio);
+        nombre = nombre +"; "+req.session.Carrito[i].Nombre;
+        count ++; 
+      }
+    }
+  
+    res.render('detaille', { title: 'Express', carrito : carrito, total : total, nombre:nombre, Contador:count, Total: total , UserID :UserID });
+
+    
+  
+
+});
 router.post('/logueo', function(req, res, next) {
   //Datos de mysql desde la tabla books
   var Total =0;
