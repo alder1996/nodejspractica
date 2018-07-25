@@ -198,7 +198,7 @@ router.get('/eliminarcarrito/:id', function(req, res, next) {
       }
     }
   
-    res.render('detaille', { title: 'Express', carrito : carrito, total : total, nombre:nombre, Contador:count, Total: total , UserID :UserID });
+    res.redirect('../checkout');
 
     
   
