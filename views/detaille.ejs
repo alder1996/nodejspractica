@@ -63,8 +63,8 @@
       </ul>
       <% for(var i =0; i < carrito.length; i++){%>
         <ul class="cart-header">
-                <li class="ring-in"><a href="#" ><img src="../images/blu.jpg" class="img-responsive" alt=""></a>
-                </li>
+                <li> <a href="eliminarcarrito/<%=carrito[i].ManualID%>" class="add-cart cart-check">Remover</a></li>
+
                 <li><span><%=carrito[i].Nombre  %></span></li>
                 <li><span>$ <%=carrito[i].Precio  %></span></li>
                 <li><span><%=carrito[i].Autor%></span></li>
@@ -83,8 +83,8 @@
             <input type="hidden" name="amount" value=" <%=Total %>"/>
            
 
-          <input type="hidden" name="return" value="https://nodejspractiq.herokuapp.com/gracias/<%=Contador %>"/>
-          <input type="hidden" name="Notify_url" value="https://nodejspractiq.herokuapp.com/gracias"/>
+          <input type="hidden" name="return" value="http://localhost:3000/gracias/<%=Contador %>"/>
+          <input type="hidden" name="Notify_url" value="http://localhost:3000/lala"/>
           <input type="hidden" name="cancel_return" value="">
           <% if(UserID>0){%>
           <input type='submit'  style="
