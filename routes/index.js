@@ -516,7 +516,8 @@ router.get('/Producto/compra', function(req, res, next) {
 
 router.get('/Producto/index', function(req, res, next) {
   if(req.session.Usuario == 1){
-    db.query("select * from Manuales", function(err,results){
+    //HEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+    db.query("select * from Manuales where borrado = 1", function(err,results){
       //console.log(results);
       res.render('Producto/index', { title: '', Manuales:results });
     });
@@ -526,6 +527,7 @@ router.get('/Producto/index', function(req, res, next) {
   }
   });
 //post busqueda
+
   router.post('/Producto/Buscar', function(req, res, next) {
     if(req.session.Usuario == 1){
       var query = "select * from Manuales WHERE Nombre Like "
@@ -536,7 +538,7 @@ router.get('/Producto/index', function(req, res, next) {
      "Tecnologia Like "+"'%" + req.body.busqueda +"%'";
   } 
   else{
-    db.query("select * from Manuales", function(err,results){
+    db.query("select * from Manuales WHERE borrado = 1", function(err,results){
       //console.log(results);
       res.render('Producto/index', { title: '', Manuales:results });
     });
@@ -566,7 +568,7 @@ router.get('/Producto/create', function(req, res, next) {
 router.post('/Producto/create', function(req, res, next) {
  if(req.session.Usuario == 1){    
   var query = "insert Manuales set ";
-
+query+= "Borrado = 1, Estatus = 1,";
   if(req.body.Nombre)
   { query+= "Nombre =" + "'"+req.body.Nombre + "'" +"," }
   if(req.body.Descripcion)
@@ -577,8 +579,6 @@ router.post('/Producto/create', function(req, res, next) {
   { query+= "Tecnologia ="+"'" +req.body.Tecnologia +"'"+ "," }
   if(req.body.Precio)
   { query+= "Precio ="+"'" +req.body.Precio +"'"+ "," }
-/*  if(req.body.Estatus)
-  { */query+= "Estatus ="+"1"+ "," //}
   if(req.files.archivo)
   { 
     console.log("hay foto");
@@ -691,8 +691,8 @@ router.post('/Producto/edit/(:ManualID)', function(req, res, next) {
 router.post('/Producto/delete/(:ManualID)', function(req, res, next) {
  
   var Manuales = { ManualID: req.params.ManualID }
-
-  db.query("delete from Manuales where ManualID="+req.params.ManualID, Manuales, function(err, results){
+//HEREEEE
+  db.query("update Manuales set Borrado = 0, Estatus = 0 where ManualID="+req.params.ManualID, Manuales, function(err, results){
     res.render('Producto/confirmacion', {title:''});      
   }); 
  
