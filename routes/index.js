@@ -23,7 +23,7 @@ if(req.session.Carrito != null && req.session.Carrito.length>0){
     Contador++;
   }
 }
-db.query("SELECT * from Manuales ORDER by ManualID desc LIMIT 4",function(err,results){
+db.query("SELECT * from Manuales where borrado = 1 ORDER by ManualID desc LIMIT 4",function(err,results){
   
   res.render('index', { title: 'Express', Contador: Contador, Total : Total, UserID :UserID, productos : results });
 
@@ -352,7 +352,7 @@ if(req.session.UserID != null){
       Contador++;
     }
   }
-  db.query("SELECT * FROM Manuales where Estatus =1", function(err, results){
+  db.query("SELECT * FROM Manuales where Estatus =1 and  borrado = 1", function(err, results){
     console.log(results);
       res.render('productos', { title: 'Productos', books: results,Total:Total, Contador:Contador, UserID :UserID });
     });
