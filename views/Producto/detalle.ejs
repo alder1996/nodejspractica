@@ -1,0 +1,24 @@
+<%- include ../Layouts_p/header.ejs%>
+<h1><%= title %></h1>
+
+<div class="container">
+  <hr>
+    <div class="row">
+        <table class="table">
+            <tr>
+                <th>No.</th>
+                <th>Producto</th>
+                <th>Cantidad</th>
+            </tr>
+            <% for(var i=0; i<CompraDetalle.length;i++){ %>
+            <tr>
+                    <td><%= CompraDetalle[i].CompraDetalleID %></td>
+                    <td><%= CompraDetalle[i].Nombre %></td>
+                    <td><%= CompraDetalle[i].Cantidad %></td>
+                </tr>
+                <% } %>
+        </table>
+    </div>
+</div>
+
+<%- include ../Layouts_p/footer.ejs%>

@@ -1,0 +1,88 @@
+<% if(UserID>0){%>
+  <%- include layouts/header2.ejs%>
+<%}%>
+<% if(UserID==0){%>
+    <%- include layouts/header.ejs%>
+<%}%>
+<div class="header-top">
+
+        <div class="header-bottom">
+        <div class="container">     
+          <div class="logo">
+            <h1><a href="/">Yo<span>Programo</span></a></h1>
+          </div>
+       <!---->
+       
+        <div class="top-nav">
+          <ul class="memenu skyblue">
+                <li class="grid"><a href="/">Inicio</a></li>
+                <li class="grid"><a href="/productos">Productos</a>
+                </li>
+            <li class="grid"><a href="/contacto">Contact</a>            
+            </li>
+            <li class="grid"><a href="/acercade">Acerca de</a>
+            </li>
+          </ul>
+          <div class="clearfix"> </div>
+        </div>
+            <!---->
+            <div class="cart box_1">
+              <a href="checkout">
+              <h3> <div class="total">
+                <span> </span>$ <%=Total%> (<span><%=Contador%></span>)</div>
+                <img src="images/cart2-2.png" alt=""/></h3>
+              </a>
+              <div class="clearfix"> </div>
+            </div>
+    
+            <!---->
+          </div>
+    
+      </div>
+      </div>
+    
+
+      <div class="back">
+            <h2>Login</h2>
+        </div>
+                <!---->
+                <div class="container">
+                <div class="account_grid">
+                       <div class=" login-right">
+                          <h3>Usuarios Registrados</h3>
+                        <p>Si ya creaste tu cuenta, por favor inicia sesión.</p>
+                        <form action="/logueo" method="post">
+                          <div>
+                            <span>Email</span>
+                            <input type="email" style="
+                            border: 1px solid #000;
+                            outline: none;
+                            width: 100%;
+                            font-size: 0.9em;
+                            padding: 10px;" required id="Email" name="Email"> 
+                          </div>
+                          <div>
+                            <span>Contraseña</span>
+                            <input type="password" style="
+                            border: 1px solid #000;
+                            outline: none;
+                            width: 100%;
+                            font-size: 0.9em;
+                            padding: 10px;" required id="password" name="password"> 
+                          </div>
+                          <!--<a class="forgot" href="#">¿Olvidaste tu contraseña?</a>-->
+                          <input type="submit" value="Login">
+                        </form>
+                       </div>	
+                        <div class=" login-left">
+                           <h3>Nuevos Usuarios</h3>
+                         <p>Creando tu cuenta en nuestro sitio, podrás descargar diversos manuales de programacion y más.</p>
+                         <a class="acount-btn" href="register">Crear cuenta</a>
+                       </div>
+                    
+                     </div>
+                
+                    </div>
+
+
+      <%- include layouts/footer.ejs%>

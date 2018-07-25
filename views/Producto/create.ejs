@@ -1,0 +1,27 @@
+<%- include ../Layouts_p/header.ejs%>
+
+<div class="container">
+
+    <form action="/producto/create" enctype="multipart/form-data" method="post">
+        Nombre
+        <input type="text" class="form-control" name="Nombre" id="Nombre"> <br>
+        Descripción
+        <input type="text" class="form-control" name="Descripcion" id="Descripcion"><br/>
+        Autor
+        <input type="text" class="form-control" name="Autor" id="Autor"><br/>
+        Tecnología
+        <input type="text" class="form-control" name="Tecnologia" id="Tecnologia"><br/>
+        Precio
+        <input type="number" step="any" class="form-control" name="Precio" id="Precio"><br/>
+        Imagen
+        <input type="file" accept="image/*" class="form-control" name="archivo" id="archivo"><br/>
+        PDF
+        <input type="file" class="form-control" accept="application/pdf" name="archivopdf" id="archivopdf"><br/>
+    
+         <button type="submit" class="btn btn-primary">
+            Agregar
+          </button>
+    </form>
+    </div>
+<%- include ../Layouts_p/footer.ejs%>
+    

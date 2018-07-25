@@ -1,0 +1,67 @@
+<% if(UserID>0){%>
+    <%- include layouts/header2.ejs%>
+<%}%>
+<% if(UserID==0){%>
+    <%- include layouts/header.ejs%>
+<%}%>
+<div class="header-top">
+
+        <div class="header-bottom">
+        <div class="container">     
+          <div class="logo">
+            <h1><a href="/">Yo<span>Programo</span></a></h1>
+          </div>
+       <!---->
+       
+        <div class="top-nav">
+          <ul class="memenu skyblue">
+                <li class="grid"><a href="/">Inicio</a></li>
+                <li class="grid"><a href="/productos">Productos</a>
+                </li>
+            <li class="grid"><a href="/contacto">Contact</a>            
+            </li>
+            <li class="grid"><a href="/acercade">Acerca de</a>
+            </li>
+          </ul>
+          <div class="clearfix"> </div>
+        </div>
+            <!---->
+            <div class="cart box_1">
+              <a href="checkout">
+              <h3> <div class="total">
+                <span> </span>$ <%=Total%> (<span><%=Contador%></span>)</div>
+                <img src="images/cart2-2.png" alt=""/></h3>
+              </a>
+              <div class="clearfix"> </div>
+            </div>
+    
+            <!---->
+          </div>
+    
+      </div>
+      </div>
+
+
+
+
+      <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="jumbotron" style="background-color: azure !important">
+                    <h2>
+                       Gracias
+                    </h2>
+                    <p>
+                        Haz clic en los enlaces siguientes para descargar tus archivos.
+                    </p>
+                    <% for(var i =0; i < productos.length; i++){%>
+                   
+                    <p>
+                        <a class="btn btn-primary btn-large" download="" href="..<%= productos[i].URL%>">Descargar</a>
+                    </p>
+                    <%}%>
+                </div>
+            </div>
+        </div>
+    </div>
+      <%- include layouts/footer.ejs%>

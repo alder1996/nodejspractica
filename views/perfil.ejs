@@ -1,0 +1,76 @@
+<% if(UserID>0){%>
+    <%- include layouts/header2.ejs%>
+<%}%>
+<% if(UserID==0){%>
+    <%- include layouts/header.ejs%>
+<%}%>
+
+<div class="header-top">
+
+    <div class="header-bottom">
+    <div class="container">     
+      <div class="logo">
+        <h1><a href="/">Yo<span>Programo</span></a></h1>
+      </div>
+   <!---->
+   
+    <div class="top-nav">
+      <ul class="memenu skyblue">
+          <li class="grid"><a href="/">Inicio</a></li>
+          <li class="grid"><a href="/productos">Productos</a>
+          </li>
+        <li class="grid"><a href="/contacto">Contact</a>            
+        </li>
+        <li class="grid"><a href="/acercade">Acerca de</a>
+        </li>
+      </ul>
+      <div class="clearfix"> </div>
+    </div>
+        <!---->
+        <div class="cart box_1">
+            <a href="../checkout">
+                <h3> <div class="total">
+              <span> </span>$ <%=Total%> (<span><%=Contador%></span>)</div>
+              <img src="images/cart2-2.png" alt=""/></h3>
+            </a>
+            <div class="clearfix"> </div>
+          </div>
+
+        <!---->
+      </div>
+
+  </div>
+  </div>
+
+
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-4">
+          </div>
+          <div class="col-md-4">
+            <h1>Mi historial de compras</h1><br>
+              <% for(var i =0; i < productos.length; i++){%>
+                <div class="card" style="border: gray dotted !important; margin-top: 10px">
+                    <h5 class="card-header">
+                        <label>Manual: <%= productos[i].Nombre%></label> 
+                      </h5>
+                    <div class="card-footer">
+                        <a class="btn btn-primary btn-large"  style="align-content: center !important" download="" href="<%= productos[i].ManualURL%>">Descargar</a>
+                      </div>
+                  </div>
+               
+                <%}%>
+          </div>
+          <div class="col-md-4">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+       <%- include layouts/footer.ejs%>

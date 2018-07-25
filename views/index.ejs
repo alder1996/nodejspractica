@@ -1,0 +1,200 @@
+<% if(UserID>0){%>
+	  <%- include layouts/header2.ejs%>
+<%}%>
+<% if(UserID==0){%>
+      <%- include layouts/header.ejs%>
+<%}%>
+<div class="header">
+	<div class="header-top">
+
+			<div class="header-bottom">
+			<div class="container">			
+				<div class="logo">
+					<h1><a href="#">Yo<span>Programo</span></a></h1>
+				</div>
+		 <!---->
+		 
+			<div class="top-nav">
+				<ul class="memenu skyblue">
+					<li class="active"><a href="#">Inicio</a></li>
+					<li class="grid"><a href="/productos">Productos</a>
+					</li>
+					<li class="grid"><a href="/contacto">Contact</a>						
+					</li>
+					<li class="grid"><a href="/acercade">Acerca de</a>
+					</li>
+				</ul>
+				<div class="clearfix"> </div>
+			</div>
+					<!---->
+					<div class="cart box_1">
+						<a href="checkout">
+						<h3> <div class="total">
+						  <span> </span>$ <%=Total%> (<span><%=Contador%></span>)</div>
+						  <img src="images/cart2-2.png" alt=""/></h3>
+						</a>
+						<div class="clearfix"> </div>
+					  </div>
+
+<div class="clearfix"> </div>
+					<!---->
+				</div>
+			<div class="clearfix"> </div>
+		</div>
+		</div>
+
+	<div class="banner">
+		<div class="banner-top">
+	         <h2>Programando mi Futuro</h2>
+	         <p>Ofrecemos Manuales a la medida, saca tu yo programador interior y aprende con nosotros, cursos básicos desde 0, 100% garantizados!!!</p>
+</div>
+	<div class="now">
+	         <a class="morebtn" href="/productos">Catálogo</a>
+	         <div class="clearfix"> </div>
+	         </div>
+ 	</div>	
+ 				<div class="clearfix"> </div>	
+			</div>
+<!---->
+<div class="goggles"> 
+    <div class="container"> 
+      <h2>Productos más vendidos</h2>
+      <div class="row">
+      <% for(var i =0; i < productos.length; i++){%>
+
+        <div class="col-md-3 product-left"> 
+          <div class="p-one simpleCart_shelfItem">      
+				<% if(productos[i].Estatus==1){%>
+        
+              <a href="/preview/<%= productos[i].ManualID %>">
+                <img src="../images/<%= productos[i].Imagen %>" width="100%" height="250px" class="responsive" alt="producto"/>
+                <div class="mask">
+                  <span>Ver detalle</span>
+                </div>
+              </a>
+            <h4><%= productos[i].Nombre %></h4>
+            <p><a class="item_add" href="/preview/<%= productos[i].ManualID %>"><i></i> <span class=" item_price">$<%=productos[i].Precio%></span></a></p>
+			<%}%>
+			<% if(productos[i].Estatus==0){%>
+        
+				<a href="#" style="pointer-events: none;
+				cursor: default;">
+				  <img src="../images/<%= productos[i].Imagen %>" width="100%" height="250px" class="responsive" alt="producto"/>
+				  <div class="mask">
+					<span>No disponible</span>
+				  </div>
+				</a>
+			  <h4><%= productos[i].Nombre %></h4>
+			  <%}%>
+          </div>
+        </div>
+      
+      <%}%>
+    </div>
+    </div>
+  </div>
+		<!---->
+		<div class="sap_tabs">
+			<div class="container">
+			<label class="line"> </label>
+			<h2>Lenguajes de Programación</h2>
+
+									  <div class="img-top simpleCart_shelfItem">
+										
+					   		  			   <img src="images/pi2.jpg" class="img-responsive" alt=""/>
+											
+								              <div class="tab_desc">
+												 
+												 	<div class="agency ">
+													<div class="agency-left">
+														<h6 class="jean">Node Js</h6>
+														<span class="dollor item_price">Node JS</span>
+														<div class="clearfix"> </div>
+													</div>
+													<div class="agency-right">
+														<ul class="social">
+															<li><a href="#"><i class="item_add"> </i></a></li>
+														</ul>
+														<ul class="social-in">
+															<li><a href="#"><i> </i></a></li>
+															<li><a href="#"><i > </i></a></li>
+															<li><a href="#"><i> </i></a></li>
+															<li><a href="#"><i > </i></a></li>
+															<li><a href="#"><i > </i></a></li>
+														</ul>
+														<div class="clearfix"> </div>
+													</div>
+												 </div>
+											  </div>
+										
+										</div>
+										
+										<div class="img-top simpleCart_shelfItem">
+										  
+					   		  			   <img src="images/pi3.jpg" class="img-responsive" alt=""/>
+											<div class="tab_desc">
+												 
+												<div class="agency ">
+													<div class="agency-left">
+														<h6 class="jean">Android (java)</h6>
+														<span class="dollor item_price">Android (java)</span>
+														<div class="clearfix"> </div>
+													</div>
+													<div class="agency-right">
+														<ul class="social">
+															<li><a href="#"><i class="item_add"> </i></a></li>
+														</ul>
+														<ul class="social-in">
+															<li><a href="#"><i> </i></a></li>
+															<li><a href="#"><i > </i></a></li>
+															<li><a href="#"><i> </i></a></li>
+															<li><a href="#"><i > </i></a></li>
+															<li><a href="#"><i > </i></a></li>
+														</ul>
+														<div class="clearfix"> </div>
+													</div>
+												 </div>
+											  </div>
+											  <div class="col-in">
+											  	<p>NEW</p>
+											  </div>
+											 </div>
+											  <div class="img-top simpleCart_shelfItem">
+										  
+					   		  			   <img src="images/pi4.jpg" class="img-responsive" alt=""/>
+											<div class="tab_desc">
+												 
+												 <div class="agency ">
+													<div class="agency-left">
+														<h6 class="jean">C#</h6>
+														<span class="dollor item_price">C# .Net</span>
+														<div class="clearfix"> </div>
+													</div>
+													<div class="agency-right">
+														<ul class="social">
+															<li><a href="#"><i class="item_add"> </i></a></li>
+														</ul>
+														<ul class="social-in">
+															<li><a href="#"><i> </i></a></li>
+															<li><a href="#"><i > </i></a></li>
+															<li><a href="#"><i> </i></a></li>
+															<li><a href="#"><i > </i></a></li>
+															<li><a href="#"><i > </i></a></li>
+														</ul>
+														<div class="clearfix"> </div>
+													</div>
+												 </div>
+											  </div>
+
+											</div>
+											<div class="clearfix"></div>
+
+          </div>
+         </div>
+	</div>
+
+
+
+
+
+    <%- include layouts/footer.ejs%>

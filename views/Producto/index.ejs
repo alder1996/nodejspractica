@@ -1,0 +1,76 @@
+<%- include ../Layouts_p/header.ejs%>
+<h1><%= title %></h1>
+
+<div class="container">
+    <div class="row">
+
+            <a href="/Producto/create" class="btn btn-primary" style="height: 40px;" >Agregar</a>
+
+            <form method="POST" action="/Producto/Buscar/" style="padding-left: 30px">
+                <div class="row">
+                    <div class="col-md-8">
+                            <input class="form-control" type="text" name="busqueda" id="busqueda" placeholder="Búsqueda">     
+                    </div>
+                    <div class="col-md-4">
+                            <input type="submit" class="btn btn-primary" value="Buscar">    
+
+                    </div>
+                </div>
+                      
+            </form>
+</div>
+  <hr>
+    <div class="row">
+        <table class="table">
+            <tr>
+                <th>No.</th>
+                <th>Título</th>
+                <th>Descripción</th>
+                <th>ManualURL</th>
+                <th>Autor</th>
+                <th>Foto</th>
+                <th>Tecnología</th>
+                <th>Precio</th>
+                <th>Ventas</th>                
+                <th>Estatus</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <% for(var i=0; i<Manuales.length;i++){ %>
+            <tr>
+                    <td><%= Manuales[i].ManualID %></td>
+                    <td><%= Manuales[i].Nombre %></td>
+                    <td><%= Manuales[i].Descripcion %></td>
+                    <td><%= Manuales[i].ManualURL %></td>
+                    <td><%= Manuales[i].Autor %></td>
+                    <td>
+                            <img src="../images/<%= Manuales[i].Imagen %> %>" width="79px" height="79px" class="img-responsive" alt="imagen">
+                      
+                    <td><%= Manuales[i].Tecnologia %></td>
+                    <td><%= Manuales[i].Precio %></td>
+                    <td><%= Manuales[i].Ventas %></td>
+                    <% if (Manuales[i].Estatus == 0) { %>
+                        <td>Inactivo</td>
+                    <% } %>   
+                    <% if (Manuales[i].Estatus == 1) { %>
+                        <td>Activo</td>  
+                    <% } %>
+                  
+                    <td>
+                    <div style="float: left">
+                        <a href='/Producto/edit/<%= Manuales[i].ManualID %>' class="btn btn-warning">Editar</a>
+                    </div>
+                    </td>
+                    <td>
+                        <form method="post" action="/Producto/delete/<%= Manuales[i].ManualID %>" style="float:right">
+                            <input type="submit" class="btn btn-danger" value="Eliminar" onClick="return confirm('¿Estás seguro de borrar el registro?')"
+                            />
+                        </form>
+                    </td>
+                </tr>
+                <% } %>
+        </table>
+    </div>
+</div>
+
+<%- include ../Layouts_p/footer.ejs%>

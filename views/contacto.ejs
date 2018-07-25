@@ -1,0 +1,85 @@
+<% if(UserID>0){%>
+    <%- include layouts/header2.ejs%>
+<%}%>
+<% if(UserID==0){%>
+    <%- include layouts/header.ejs%>
+<%}%>
+<div class="header-top">
+
+    <div class="header-bottom">
+    <div class="container">     
+      <div class="logo">
+        <h1><a href="/">Yo<span>Programo</span></a></h1>
+      </div>
+   <!---->
+   
+    <div class="top-nav">
+      <ul class="memenu skyblue">
+            <li class="grid"><a href="/">Inicio</a></li>
+            <li class="grid"><a href="/productos">Productos</a>
+            </li>
+        <li class="active"><a href="/contacto">Contact</a>            
+        </li>
+        <li class="grid"><a href="/acercade">Acerca de</a>
+        </li>
+      </ul>
+      <div class="clearfix"> </div>
+    </div>
+        <!---->
+        <div class="cart box_1">
+            <a href="checkout">
+            <h3> <div class="total">
+              <span> </span>$ <%=Total%> (<span><%=Contador%></span>)</div>
+              <img src="images/cart2-2.png" alt=""/></h3>
+            </a>
+            <div class="clearfix"> </div>
+          </div>
+
+        <!---->
+      </div>
+
+  </div>
+  </div>
+
+
+
+  <div class="back">
+        <h2>Contact</h2>
+    </div>
+            <!---->
+            <div class="container">
+                <div class="contact">
+                
+                    <div class=" contact-top-in">
+                        <h3>Ubícanos</h3>
+                        <div class="map">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3726.3259457474696!2d-89.61745258572454!3d20.939421696199535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f5672270a784baf%3A0x764b40010695f0d9!2sUniversidad+Tecnol%C3%B3gica+Metropolitana!5e0!3m2!1ses!2smx!4v1531956686499" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>    
+                        </div>
+                        
+                        <p>Estamos para servirte!, si tienes alguna duda o queja puedes presentarte en nuestras oficinas de <strong>Lunes a viernes de 13:00pm a 16:00pm</strong>, o bien puedes escribirnos a continuación, te contestaremos a la brevedad.</p>
+                        
+                    </div>
+                    <!--<div class=" contact-top">
+                        <h3>Tienes alguna duda, queja o sugerencia? Estamos para servirte</h3>
+                            <div>
+                                <span>Nombre</span>		
+                                <input type="text" value="" >						
+                            </div>
+                            <div>
+                                <span>Email</span>		
+                                <input type="text" value="" >						
+                            </div>
+                            <div>
+                                <span>Asunto</span>		
+                                <input type="text" value="" >	
+                            </div>
+                            <div>
+                                <span>Mensaje</span>		
+                                <textarea> </textarea>	
+                            </div>
+                            <input type="submit" value="Enviar" >	
+                    </div>-->
+            
+            </div>
+        </div>
+<%- include layouts/footer.ejs%>

@@ -1,0 +1,112 @@
+<% if(UserID>0){%>
+  <%- include layouts/header2.ejs%>
+<%}%>
+<% if(UserID==0){%>
+    <%- include layouts/header.ejs%>
+<%}%>
+<div class="header-top">
+
+        <div class="header-bottom">
+        <div class="container">     
+          <div class="logo">
+            <h1><a href="/">Yo<span>Programo</span></a></h1>
+          </div>
+       <!---->
+       
+        <div class="top-nav">
+          <ul class="memenu skyblue">
+                <li class="grid"><a href="/">Inicio</a></li>
+                <li class="grid"><a href="/productos">Productos</a>
+                </li>
+            <li class="grid"><a href="/contacto">Contact</a>            
+            </li>
+            <li class="grid"><a href="/acercade">Acerca de</a>
+            </li>
+          </ul>
+          <div class="clearfix"> </div>
+        </div>
+            <!---->
+            <div class="cart box_1">
+              <a href="checkout">
+              <h3> <div class="total">
+                <span> </span>$ <%=Total%> (<span><%=Contador%></span>)</div>
+                <img src="images/cart2-2.png" alt=""/></h3>
+              </a>
+              <div class="clearfix"> </div>
+            </div>
+    
+            <!---->
+          </div>
+    
+      </div>
+      </div>
+    
+    
+    
+      <div class="back">
+            <h2>Mi carrito</h2>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-8 product-price1">
+				<div class="check-out">	 
+		 <div class=" cart-items">
+			 <h3>Mi carrito</h3>
+				
+				  <div class="in-check" >
+		  <ul class="unit">
+			<li><span>Item</span></li>
+			<li><span>Nombre</span></li>		
+			<li><span>Precio</span></li>
+			<li><span>Autor</span></li>
+			<li> </li>
+			<div class="clearfix"> </div>
+      </ul>
+      <% for(var i =0; i < carrito.length; i++){%>
+        <ul class="cart-header">
+                <li class="ring-in"><a href="#" ><img src="../images/blu.jpg" class="img-responsive" alt=""></a>
+                </li>
+                <li><span><%=carrito[i].Nombre  %></span></li>
+                <li><span>$ <%=carrito[i].Precio  %></span></li>
+                <li><span><%=carrito[i].Autor%></span></li>
+                <li> <a href="#" class="add-cart cart-check">Agregado</a></li>
+                <div class="clearfix"> </div>
+       </ul>
+       <%}%>
+
+		</div>
+       </div>
+       <form action="https://sandbox.paypal.com/cgi-bin/webscr" method="post" target="paypal">
+          <input type="hidden" name="cmd" value="_xclick"/>           
+          <input type="hidden" name="business" value="aldair.bastarrachea-facilitator@outlook.com"/>
+          <input type="hidden" name="currency_code" value="MXN"/>
+            <input type="hidden" name="item_name" value="<%=nombre %>"/>
+            <input type="hidden" name="amount" value=" <%=Total %>"/>
+           
+
+          <input type="hidden" name="return" value="http://localhost:3000/gracias/<%=Contador %>"/>
+          <input type="hidden" name="Notify_url" value="http://localhost:3000/lala"/>
+          <input type="hidden" name="cancel_return" value="">
+          <% if(UserID>0){%>
+          <input type='submit'  style="
+          text-decoration: none;
+         color: #fff;
+         background: #ff5d56;
+         padding: 0.7em 0.9em;
+         font-size: .9em;
+         text-transform: uppercase;
+         margin-top: 2em;
+         display: inline-block;
+         border: none;" value="Pagar"/>
+         <%}%>
+         <% if(UserID==0){%>
+          <% if( carrito.length >0){%>
+<br>Debes iniciar sesión para realizar la comprar<br>
+          <a href="account" class="add-cart cart-check">Login</a>
+          <%}%>
+         <%}%>
+            </form>
+				<div class="clearfix"> </div>
+</div></div>
+<div class="col-md-2"></div>
+
+        <%- include layouts/footer.ejs%>

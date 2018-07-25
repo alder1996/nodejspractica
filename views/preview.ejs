@@ -1,0 +1,191 @@
+<% if(UserID>0){%>
+    <%- include layouts/header2.ejs%>
+<%}%>
+<% if(UserID==0){%>
+    <%- include layouts/header.ejs%>
+<%}%>
+<div class="header-top">
+
+    <div class="header-bottom">
+    <div class="container">     
+      <div class="logo">
+        <h1><a href="/">Yo<span>Programo</span></a></h1>
+      </div>
+   <!---->
+   
+    <div class="top-nav">
+      <ul class="memenu skyblue">
+          <li class="grid"><a href="/">Inicio</a></li>
+          <li class="active"><a href="/productos">Productos</a>
+          </li>
+        <li class="grid"><a href="/contacto">Contact</a>            
+        </li>
+        <li class="grid"><a href="/acercade">Acerca de</a>
+        </li>
+      </ul>
+      <div class="clearfix"> </div>
+    </div>
+        <!---->
+        <div class="cart box_1">
+            <a href="../checkout">
+                <h3> <div class="total">
+              <span> </span>$ <%=Total%> (<span><%=Contador%></span>)</div>
+              <img src="images/cart2-2.png" alt=""/></h3>
+            </a>
+            <div class="clearfix"> </div>
+          </div>
+
+        <!---->
+      </div>
+
+  </div>
+  </div>
+<br>
+  <div class="col-md-2"></div>
+  <div class="col-md-8 product-price1">
+    <div class="col-md-5 single-top">	
+            <div class="flexslider">
+                <ul class="slides">
+                    <li data-thumb="../images/<%= dato[0].Imagen %>">
+                        <img src="../images/<%= dato[0].Imagen %>" />
+                    </li>
+                </ul>
+            </div>
+<!-- FlexSlider -->
+<script defer src="../js/jquery.flexslider.js"></script>
+<link rel="stylesheet" href="../css/flexslider.css" type="text/css" media="screen" />
+
+<script>
+// Can also be used with $(document).ready()
+$(window).load(function() {
+$('.flexslider').flexslider({
+animation: "slide",
+controlNav: "thumbnails"
+});
+});
+</script>
+        </div>	
+        <div class="col-md-6 single-top-in simpleCart_shelfItem">
+            <div class="single-para ">
+            <h4><%= dato[0].Nombre %></h4>
+                <div class="star-on">
+                    <ul class="star-footer">
+                            <li><a href="#"><i> </i></a></li>
+                            <li><a href="#"><i> </i></a></li>
+                            <li><a href="#"><i> </i></a></li>
+                            <li><a href="#"><i> </i></a></li>
+                            <li><a href="#"><i> </i></a></li>
+                        </ul>
+                    <div class="review">
+                        <a href="#"> Comentarios  (<%= count %>)</a>
+                        
+                    </div>
+                <div class="clearfix"> </div>
+                </div>
+                
+                <h5 class="item_price">$ <%= dato[0].Precio %></h5>
+            </div>
+                <ul class="tag-men">
+                    <li><span>Lenguaje</span>
+                    <span class="women1">: <%= dato[0].Tecnologia %></span></li>
+                    <li><span>Autor</span>
+                    <span class="women1">: <%= dato[0].Autor %></span></li>
+                </ul>
+                <h4>Descripción: </h4>
+                <%=dato[0].Descripcion %><br>
+                <form action="/carrito" method="post">
+                    <input type="hidden" value="<%= dato[0].ManualID %>" name="ManualID" id="ManualID">
+
+                    <input type="hidden" value="<%= dato[0].Nombre %>" name="Nombre" id="Nombre">
+                    <input type="hidden" value="<%= dato[0].Precio %>" name="Precio" id="Precio">
+                    <input type="hidden" value="<%= dato[0].Autor %>" name="Autor" id="Autor">
+                    <input type="hidden" value="<%= dato[0].ManualURL %>" name="URL" id="URL">
+
+                    <input href="#" type="submit" class="add-cart item_add" value="Agregar al carrito"
+                    style="
+                    text-decoration: none;
+                   color: #fff;
+                   background: #ff5d56;
+                   padding: 0.7em 0.9em;
+                   font-size: .9em;
+                   text-transform: uppercase;
+                   margin-top: 2em;
+                   display: inline-block;
+                   border: none;">
+                </form>
+            </div>
+    <div class="clearfix"> </div>
+<!---->
+        <div class="cd-tabs">
+<nav>
+    <ul class="cd-tabs-navigation">
+        <li><a data-content="television" href="#" class="selected ">Comentarios(<%=count %>)</a></li>        
+    </ul> 
+</nav>
+<ul class="cd-tabs-content">
+
+<li data-content="television" class="selected">
+<div class="comments-top-top">
+        <% for(var i =0; i < comentarios.length; i++){%>
+            <div class="top-comment-left">
+        <img class="img-responsive" src="../images/<%= comentarios[i].Foto %>" alt="">
+    </div>
+    <div class="top-comment-right">
+        <h6><a href="#"><%=comentarios[i].Nombre%> &nbsp;<%=comentarios[i].ApellidoPaterno%> </a></h6>
+        <ul class="star-footer">
+                            <li><a href="#"><i> </i></a></li>
+                            <li><a href="#"><i> </i></a></li>
+                            <li><a href="#"><i> </i></a></li>
+                            <li><a href="#"><i> </i></a></li>
+                            <li><a href="#"><i> </i></a></li>
+                        </ul>
+                        <p><%=comentarios[i].Comentario  %></p>
+    </div>
+    <div class="clearfix"> </div>
+    <%}%>
+</div>
+</li>
+<div class="clearfix"></div>
+</ul> 
+<button id="buttonComment" style="
+ text-decoration: none;
+color: #fff;
+background: #ff5d56;
+padding: 0.7em 0.9em;
+font-size: .9em;
+text-transform: uppercase;
+margin-top: 2em;
+display: inline-block;
+border: none;" onclick="comentar()">Agregar Comentario</button>
+
+<div id="commentBox" style="display: none">
+        <br><br>
+        <form action="/comentar" method="post">
+            <input type="hidden" id="ManualID" name="ManualID" value="<%= dato[0].ManualID%>">
+            <textarea rows="5" cols="100" maxlength="140" id="comentario" name="comentario"> </textarea>
+            <br>
+            <input type="submit"  style="
+            text-decoration: none;
+           color: #fff;
+           background: #ff5d56;
+           padding: 0.7em 0.9em;
+           font-size: .9em;
+           text-transform: uppercase;
+           margin-top: 2em;
+           display: inline-block;
+           border: none;" class="add-re" value="Enviar">
+         </form>
+</div> 
+ 
+  
+    </div>
+    <div class="col-md-2"></div>
+    <script>
+    function comentar(){
+        $('#commentBox').css('display', 'inherit');
+        $('#buttonComment').css('display', 'none');
+
+    }
+    </script>
+    </div>
+  <%- include layouts/footer.ejs%>

@@ -1,0 +1,95 @@
+<% if(UserID>0){%>
+  <%- include layouts/header2.ejs%>
+<%}%>
+<% if(UserID==0){%>
+    <%- include layouts/header.ejs%>
+<%}%>
+    
+    <div class="header-top">
+  
+        <div class="header-bottom">
+        <div class="container">     
+          <div class="logo">
+            <h1><a href="/">Yo<span>Programo</span></a></h1>
+          </div>
+       <!---->
+       
+        <div class="top-nav">
+          <ul class="memenu skyblue">
+              <li class="grid"><a href="/">Inicio</a></li>
+              <li class="grid"><a href="/productos">Productos</a>
+              </li>
+            <li class="grid"><a href="/contacto">Contact</a>            
+            </li>
+            <li class="active"><a href="/acercade">Acerca de</a>
+            </li>
+          </ul>
+          <div class="clearfix"> </div>
+        </div>
+            <!---->
+            <div class="cart box_1">
+              <a href="checkout.html">
+              <h3> <div class="total">
+                <span> </span>$ <%=Total%> (<span><%=Contador%></span>)</div>
+                <img src="images/cart2-2.png" alt=""/></h3>
+              </a>
+              <div class="clearfix"> </div>
+            </div>
+  
+            <!---->
+          </div>
+  
+      </div>
+      </div>
+      <div class="back2">
+            <h2>Acerca de</h2>
+        </div>
+
+
+        <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3">
+                    </div>
+                    <div class="col-md-6"><br><br>
+                        <img alt="mision logo" style="display: block;
+                        margin-left: auto;
+                        margin-right: auto;" src="images/mision.png" class="rounded" />
+                        <p style=" 
+                        display: block;
+                        margin-left: auto;
+                        margin-right: auto;
+                        padding-left: 32px; 
+                         padding-right: 32px; 
+                         font-size: 32px; 
+                         font-weight: 300;
+                         line-height: 1.3125; 
+                         margin-top: 24px; 
+                         max-width: 550px; 
+                         text-align: center;
+                         width: 100%;">
+                                Nuestra misión es brindarles a todas las personas la oportunidad de aprender y ser autodidactas, ofreciendo manuales de calidad.  </p>
+                    
+                                <img alt="Bootstrap Image Preview" style="display: block;
+                                margin-left: auto;
+                                margin-right: auto;" src="images/vision.png" width="200px" class="rounded" />
+                                <p style=" 
+                                display: block;
+                                margin-left: auto;
+                                margin-right: auto;
+                                padding-left: 32px; 
+                                 padding-right: 32px; 
+                                 font-size: 32px; 
+                                 font-weight: 300;
+                                 line-height: 1.3125; 
+                                 margin-top: 24px; 
+                                 max-width: 550px; 
+                                 text-align: center;
+                                 width: 100%;">
+                                 Ser ampliamente reconocidos y aceptados como enseñantes exitosos de programacion. Y en este sentido, escalar posiciones en relaciones comerciales con otros países y romper fronteras.</p><br>
+                            </div>
+                    <div class="col-md-3">
+                    </div>
+                </div>
+            </div>
+
+      <%- include layouts/footer.ejs%>

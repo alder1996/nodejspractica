@@ -1,0 +1,72 @@
+
+<% if(UserID>0){%>
+  <%- include layouts/header2.ejs%>
+<%}%>
+<% if(UserID==0){%>
+    <%- include layouts/header.ejs%>
+<%}%>
+  <div class="header-top">
+
+      <div class="header-bottom">
+      <div class="container">     
+        <div class="logo">
+          <h1><a href="/">Yo<span>Programo</span></a></h1>
+        </div>
+     <!---->
+     
+      <div class="top-nav">
+        <ul class="memenu skyblue">
+            <li class="grid"><a href="/">Inicio</a></li>
+            <li class="active"><a href="/productos">Productos</a>
+            </li>
+          <li class="grid"><a href="/contacto">Contact</a>            
+          </li>
+          <li class="grid"><a href="/acercade">Acerca de</a>
+          </li>
+        </ul>
+        <div class="clearfix"> </div>
+      </div>
+          <!---->
+          <div class="cart box_1">
+            <a href="checkout">
+            <h3> <div class="total">
+              <span> </span>$ <%=Total%> (<span><%=Contador%></span>)</div>
+              <img src="images/cart2-2.png" alt=""/></h3>
+            </a>
+            <div class="clearfix"> </div>
+          </div>
+
+          <!---->
+        </div>
+
+    </div>
+    </div>
+
+  <!--start-shoes--> 
+  <div class="goggles"> 
+    <div class="container"> 
+      <h2>Nuestros Manuales</h2>
+      <div class="row">
+      <% for(var i =0; i < books.length; i++){%>
+
+        <div class="col-md-4 product-left"> 
+          <div class="p-one simpleCart_shelfItem">              
+              <a href="/preview/<%= books[i].ManualID %>">
+                <img src="../images/<%= books[i].Imagen %>" width="100%" height="220px" class="responsive" alt="producto"/>
+                <div class="mask">
+                  <span>Ver detalle</span>
+                </div>
+              </a>
+            <h4><%= books[i].Nombre %></h4>
+            <p><a class="item_add" href="/preview/<%= books[i].ManualID %>"><i></i> <span class=" item_price">$<%=books[i].Precio%></span></a></p>
+          
+          </div>
+        </div>
+      
+      <%}%>
+    </div>
+    </div>
+  </div>
+
+
+    <%- include layouts/footer.ejs%>

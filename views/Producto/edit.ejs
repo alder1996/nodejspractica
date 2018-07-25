@@ -1,0 +1,68 @@
+<%- include ../Layouts_p/header.ejs%>
+
+<div class="container">
+      <p>
+          <%= title %>
+      </p>
+      <form action="/Producto/edit/<%= ManualID %>" enctype="multipart/form-data"method="post">
+          <table width="25%" border="0" class="table">
+              <tr> 
+                  <td>Nombre</td>
+                  <input type="hidden" class="form-control" id="ManualID" name="ManualID" value="<%= ManualID %>">
+                  <td><input type="text" name="Nombre" class="form-control" id="Nombre" value="<%= Nombre %>" /></td>
+              </tr>
+              <tr> 
+                  <td>Descripción</td>
+                  <td><input class="form-control" type="text" name="Descripcion" id="Descripcion" value="<%= Descripcion %>" /></td>
+              </tr>
+              <tr> 
+                <td>Autor</td>
+                <td><input class="form-control" type="text" name="Autor" id="Autor" value="<%= Autor %>" /></td>
+            </tr>
+            <tr> 
+                <td>Tecnología</td>
+                <td><input class="form-control" type="text" name="Tecnologia" id="Tecnologia" value="<%= Tecnologia %>" /></td>
+            </tr>
+            <tr>
+                <td>Precio</td>
+                <td><input class="form-control" type="number" step="any" name="Precio" id="Precio" value="<%= Precio %>" /></td>
+            </tr>
+            <tr>
+                <td>Estatus</td>
+                <td>
+                    <select name="Estatus" id="Estatus"  class="form-control">
+                        <% if (Estatus == "0") { %>
+                            <option value="1"> Activo</option>                                    
+                            <option value="0" selected>Inactivo</option>                                                             
+                        <% } %>
+                        <% if (Estatus == "1") { %>
+                            <option value="1" selected>Activo</option>                                    
+                            <option value="0" >Inactivo</option>                                                             
+                        <% } %>
+                    </select>
+                </td>
+            </tr>
+              <tr>
+                  <td>Imagen</td>
+                  <td>
+              <input type="file" accept="image/*" class="form-control" name="archivo" id="archivo"><br/>   
+                  </td>
+              </tr>
+              <tr>
+                <td>PDF</td>
+                <td>
+            <input type="file" accept="application/pdf" class="form-control" name="archivopdf" id="archivopdf"><br/>
+                </td>
+            </tr>
+              <tr> 
+                  <td></td>
+                  <td>
+                  <input type="submit" class="btn btn-success" name="Guardar" value="Guardar">
+                  </td>
+              </tr>
+          </table>
+      </form>
+</div>
+
+<%- include ../Layouts_p/footer.ejs%>
+  

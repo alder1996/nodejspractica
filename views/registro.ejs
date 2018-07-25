@@ -1,0 +1,89 @@
+<% if(UserID>0){%>
+  <%- include layouts/header2.ejs%>
+<%}%>
+<% if(UserID==0){%>
+    <%- include layouts/header.ejs%>
+<%}%>
+<div class="header-top">
+
+        <div class="header-bottom">
+        <div class="container">     
+          <div class="logo">
+            <h1><a href="/">Yo<span>Programo</span></a></h1>
+          </div>
+       <!---->
+       
+        <div class="top-nav">
+          <ul class="memenu skyblue">
+                <li class="grid"><a href="/">Inicio</a></li>
+                <li class="grid"><a href="/productos">Productos</a>
+                </li>
+            <li class="grid"><a href="/contacto">Contact</a>            
+            </li>
+            <li class="grid"><a href="/acercade">Acerca de</a>
+            </li>
+          </ul>
+          <div class="clearfix"> </div>
+        </div>
+            <!---->
+            <div class="cart box_1">
+              <a href="checkout">
+              <h3> <div class="total">
+                <span> </span>$ <%=Total%> (<span><%=Contador%></span>)</div>
+                <img src="images/cart2-2.png" alt=""/></h3>
+              </a>
+              <div class="clearfix"> </div>
+            </div>
+            <!---->
+          </div>
+    
+      </div>
+      </div>
+      <div class="back">
+            <h2>Registro</h2>
+        </div>
+                <!---->
+                <div class="container">
+                <div class="register">
+                <h3>Datos de la cuenta</h3>
+                        <form action="/registro" method="post">     
+                            <div class="mation">
+                            <div>
+                                <span>Nombre</span>
+                                <input type="text" name="Nombre" id="Nombre" required> 
+                            </div>
+                            <div>
+                                <span>Apellido Paterno</span>
+                                <input type="text" name="ApellidoPaterno" id="ApellidoPaterno" required> 
+                             </div>
+                             <div>
+                                    <span>Apellido Materno</span>
+                                    <input type="text" name="ApellidoMaterno" id="ApellidoMaterno"> 
+                                 </div>
+                             <div>
+                                 <span>Email</span>
+                                 <input type="email" style="    
+                                 border: 1px solid #000;
+                                 outline: none;
+                                 width: 100%;
+                                 font-size: 0.9em;
+                                 padding: 10px;" name="Email" required id="Email" >
+                                 </div>
+                                 <div>
+                                    <span>Contraseña</span>
+                                        <input type="password" style="
+                                        border: 1px solid #000;
+                                        outline: none;
+                                        width: 100%;
+                                        font-size: 0.9em;
+                                        padding: 10px;
+                                        " required name="password" id="password">						 
+                            </div>
+                             </div>
+                             <input type="submit" value="Registrarme">
+                        </form>
+                        
+                        
+                   </div>
+                    </div>
+      <%- include layouts/footer.ejs%>
